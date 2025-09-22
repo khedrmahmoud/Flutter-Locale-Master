@@ -51,7 +51,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _appleCount = 1;
+  int _appleCount = 0;
   String _userName = 'Alice';
 
   @override
@@ -348,9 +348,9 @@ class AppleCountSlider extends StatelessWidget {
           Text('Count: $count'),
           Slider(
             value: count.toDouble(),
-            min: 1,
+            min: 0,
             max: 10,
-            divisions: 9,
+            divisions: 10,
             onChanged: (value) => onChanged(value.toInt()),
           ),
           Text(context.plural('apples', count)),

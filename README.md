@@ -50,10 +50,10 @@ assets/
 ```json
 {
   "hello": "Hello",
-  "welcome": "Welcome {name}!",
-  "item_count": "no items | {count} item | {count} items",
-  "current_time": "Current time: {time}",
-  "user_greeting": "Hello {name}, welcome back!"
+  "welcome": "Welcome :name!",
+  "item_count": "no items | :count item | :count items",
+  "current_time": "Current time: :time",
+  "user_greeting": "Hello :name, welcome back!"
 }
 ```
 
@@ -74,8 +74,8 @@ assets/
   "password_too_short": "Password must be at least 8 characters",
   "passwords_not_match": "Passwords do not match",
   "phone_invalid": "Please enter a valid phone number",
-  "min_length": "Minimum length is {min} characters",
-  "max_length": "Maximum length is {max} characters"
+  "min_length": "Minimum length is :min characters",
+  "max_length": "Maximum length is :max characters"
 }
 ```
 ```
@@ -235,7 +235,7 @@ TranslatedRichText.rich(
   'terms_agreement',
   parameters: {'app': 'MyApp'},
   spanBuilder: (translatedText) {
-    final parts = translatedText.split('{app}');
+    final parts = translatedText.split(':app');
     return TextSpan(
       children: [
         TextSpan(text: parts[0]),
@@ -414,8 +414,8 @@ context.tr('required', namespace: 'validation')
 ### Pluralization Syntax
 ```json
 {
-  "item": "no items | {count} item | {count} items",
-  "day": "today | yesterday | {count} days ago"
+  "apples": "no apples | You have :count apple | You have :count apples",
+  "items": "no items | :count item | :count items"
 }
 ```
 

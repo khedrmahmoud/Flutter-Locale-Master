@@ -2,7 +2,7 @@
   "greeting": "مرحباً :name!",
   "welcome": "مرحباً بك في Flutter Locale Master",
   "items": "عنصر|عناصر",
-  "apples": "لديك :count تفاحة|لديك :count تفاحات",
+  "apples": "لا توجد تفاحات | لديك :count تفاحة | لديك :count تفاحات",
   "go_to_second_page": "الذهاب إلى الصفحة الثانية",
   "second_page_title": "الصفحة الثانية",
   "back_to_home": "العودة إلى الرئيسية"

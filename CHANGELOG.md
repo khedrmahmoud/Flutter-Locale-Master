@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2025-09-22
+
+### Documentation
+- **Parameter Syntax Fix**: Corrected all documentation examples to use `:param` syntax instead of `{param}` syntax
+- **JSON Examples**: Fixed translation file examples to show proper parameter placeholders
+- **Consistency**: Ensured all examples use the correct `:name`, `:count`, `:min`, `:max` syntax
+
+### Features
+- **Enhanced Pluralization**: Improved ICU MessageFormat pluralization logic to properly handle zero, singular, and plural cases
+- **Zero Case Support**: Added support for zero-count pluralization (e.g., "no apples" when count = 0)
+- **Example Updates**: Updated translation files and example app to demonstrate proper pluralization
+
+### Technical Details
+- Fixed critical documentation error where parameter interpolation syntax was incorrectly shown
+- Enhanced pluralization handler to support "zero | singular | plural" format
+- Updated example app slider to start from 0 to demonstrate zero case
+- All examples now correctly demonstrate the `:param` syntax used by the package
+
 ## [1.0.4] - 2025-09-22
 
 ### Documentation
