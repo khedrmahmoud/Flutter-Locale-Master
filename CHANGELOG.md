@@ -5,18 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-01-21
+## [1.0.0] - 2025-09-22
 
 ### Added
+- **Multi-file Translation Support**: Organize translations with multiple JSON files per locale
+- **Namespace-based Organization**: Automatic namespace detection from file names
+- **Locale-specific General Files**: Use locale code as filename for default namespace (e.g., `en.json`, `ar.json`)
+- **Field Translation Support**: Dedicated `fields.json` files with `.field()` extension method
+- **Validation Message Support**: Dedicated `validation.json` files for form validation
 - **Automatic Text Direction Switching**: Framework-level RTL/LTR handling based on locale
 - **Asset-based Translation Loading**: Load translations from Flutter assets with preloading
 - **Reactive Locale Management**: LocaleController with ChangeNotifier for automatic UI updates
-- **Custom Widgets**: TranslatedText, LocaleConsumer, LocalizationProvider
-- **BuildContext Extensions**: Convenient translation methods (tr, plural, isRTL, locale)
-- **Pluralization Support**: Built-in plural forms with count parameter
-- **Parameter Replacement**: Dynamic text substitution with {param} placeholders
-- **Flutter Integration**: LocalizationsDelegate for MaterialApp integration
-- **Comprehensive Testing**: Unit and widget tests for all major components
+- **Custom Widgets**: TranslatedText, TranslatedRichText, LocaleConsumer, LocalizationProvider
+- **BuildContext Extensions**: Convenient translation methods (tr, plural, field, isRTL, locale)
+- **String Extensions**: Context-free translation access using FlutterLocaleMaster.instance
+- **Pluralization Support**: Built-in plural forms with count parameter and ICU MessageFormat
+- **Parameter Replacement**: Dynamic text substitution with named placeholders
+- **Flutter Integration**: Custom LocalizationsDelegate for MaterialApp integration
+- **Service Layer Architecture**: Modular design with interfaces for all core services
+- **Translation Caching**: In-memory caching with concurrent loading for optimal performance
+- **Comprehensive Testing**: Unit and widget tests for all major components (28 tests)
 - **Example Application**: Complete demo with English, French, and Arabic support
 
 ### Technical Details
@@ -24,6 +32,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Flutter SDK**: >=1.17.0
 - **Dart SDK**: >=3.8.1
 - **Platform Support**: iOS, Android, Web, Desktop
+- **Architecture**: Clean architecture with services, providers, controllers, widgets, and extensions
+- **File Structure**: `lang/{locale}/{namespace}.json` (e.g., `lang/en/en.json`, `lang/en/fields.json`)
+- **Namespace Support**: Automatic namespace resolution from filename
+- **RTL Languages**: Full support for Arabic, Hebrew, Persian, Urdu, and other RTL scripts
 
 ## [0.0.1] - 2025-01-21
 

@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TranslatedText('welcome', namespace: "messages"),
+        title: TranslatedText('welcome'),
         actions: [
           PopupMenuButton<String>(
             onSelected: (locale) =>
@@ -210,6 +210,46 @@ class _HomePageState extends State<HomePage> {
                 TranslationExample(
                   label: 'Translation exists',
                   content: Text('greeting'.exists() ? 'Yes' : 'No'),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
+            TranslationSection(
+              title: 'Field Translations',
+              children: [
+                TranslationExample(
+                  label: 'Email field',
+                  content: Text('email'.field()),
+                ),
+                TranslationExample(
+                  label: 'Name field',
+                  content: Text('name'.field()),
+                ),
+                TranslationExample(
+                  label: 'Password field',
+                  content: Text('password'.field()),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
+            TranslationSection(
+              title: 'Validation Messages',
+              children: [
+                TranslationExample(
+                  label: 'Required validation',
+                  content: Text('required'.tr(namespace: 'validation')),
+                ),
+                TranslationExample(
+                  label: 'Email invalid',
+                  content: Text('email_invalid'.tr(namespace: 'validation')),
+                ),
+                TranslationExample(
+                  label: 'Password too short',
+                  content: Text('password_too_short'.tr(namespace: 'validation')),
                 ),
               ],
             ),

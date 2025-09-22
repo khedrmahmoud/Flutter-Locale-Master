@@ -37,20 +37,20 @@ Create translation files in your `assets/` directory:
 assets/
   lang/
     en/
-      messages.json
-      fields.json
-      validation.json
+      en.json          # General translations (default namespace)
+      fields.json      # Form field labels
+      validation.json  # Validation messages
     ar/
-      messages.json
-      fields.json
-      validation.json
+      ar.json          # General translations (default namespace)
+      fields.json      # Form field labels
+      validation.json  # Validation messages
     fr/
-      messages.json
-      fields.json
-      validation.json
+      fr.json          # General translations (default namespace)
+      fields.json      # Form field labels
+      validation.json  # Validation messages
 ```
 
-**Example `messages.json`:**
+**Example `en.json` (general translations):**
 ```json
 {
   "hello": "Hello",
@@ -61,13 +61,23 @@ assets/
 }
 ```
 
-**Example `fields.json`:**
+**Example `fields.json` (form field labels):**
 ```json
 {
   "email": "Email Address",
   "password": "Password",
-  "name": "Full Name"
+**Example `validation.json` (validation messages):**
+```json
+{
+  "required": "This field is required",
+  "email_invalid": "Please enter a valid email address",
+  "password_too_short": "Password must be at least 8 characters",
+  "passwords_not_match": "Passwords do not match",
+  "phone_invalid": "Please enter a valid phone number",
+  "min_length": "Minimum length is {min} characters",
+  "max_length": "Maximum length is {max} characters"
 }
+```
 ```
 
 ### 2. Initialize the Package
@@ -101,7 +111,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return localeMaster.wrapApp(
-      (locale, textDirection) => MaterialApp(
+      (locale) => MaterialApp(
         title: 'My App',
         localizationsDelegates: [
           localeMaster.delegate,
@@ -380,24 +390,24 @@ class MyWidget extends StatelessWidget {
 assets/
   lang/
     en/
-      messages.json    # General messages
+      en.json          # General messages
       fields.json      # Form field labels
       validation.json  # Validation messages
     ar/
-      messages.json
+      ar.json
       fields.json
       validation.json
 ```
 
 ### Namespace Usage
 ```dart
-// Access messages namespace (default)
+// Access general translations (default namespace from en.json)
 context.tr('welcome')
 
-// Access fields namespace
+// Access fields namespace (from fields.json)
 context.field('email')  // Same as: context.tr('email', namespace: 'fields')
 
-// Access validation namespace
+// Access validation namespace (from validation.json)
 context.tr('required', namespace: 'validation')
 ```
 
@@ -458,7 +468,7 @@ void main() {
    )
 
    // After
-   localeMaster.wrapApp((locale, textDirection) => MaterialApp(...))
+   localeMaster.wrapApp((locale) => MaterialApp(...))
    ```
 
 3. **Translation access remains the same:**

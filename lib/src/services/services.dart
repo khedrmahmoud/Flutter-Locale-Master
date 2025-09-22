@@ -1,5 +1,6 @@
 /// Services for the Flutter Locale Master package.
 /// This file exports all service implementations and interfaces.
+library;
 
 export 'interfaces.dart';
 export 'locale_detector.dart';

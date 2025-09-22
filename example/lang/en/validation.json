@@ -1,0 +1,9 @@
+{
+  "required": "This field is required",
+  "email_invalid": "Please enter a valid email address",
+  "password_too_short": "Password must be at least 8 characters",
+  "passwords_not_match": "Passwords do not match",
+  "phone_invalid": "Please enter a valid phone number",
+  "min_length": "Minimum length is :min characters",
+  "max_length": "Maximum length is :max characters"
+}
