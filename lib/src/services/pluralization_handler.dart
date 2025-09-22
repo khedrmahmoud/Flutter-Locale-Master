@@ -17,7 +17,7 @@ class DefaultPluralizationHandler implements PluralizationHandler {
       return count == 1 ? parts[0] : parts[1];
     } else if (parts.length >= 3) {
       // ICU MessageFormat style: "zero|singular|plural"
-      if (count == 0 && parts.length > 0) {
+      if (count == 0 && parts.isNotEmpty) {
         return parts[0]; // zero case
       } else if (count == 1 && parts.length > 1) {
         return parts[1]; // singular case
