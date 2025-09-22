@@ -5,9 +5,6 @@ A comprehensive, production-ready Flutter localization package with automatic te
 ## ✨ Features
 
 - 🚀 **One-line initialization** with asset-based translations
-- 🔄 **Automatic text direction** switching (LTR/RTL) based on locale
-- ⚡ **Reactive UI updates** when locale changes
-- 🌍 **Namespace support** for organized translation files
 - 📱 **Built-in pluralization** with ICU MessageFormat syntax
 - 🔧 **Parameter interpolation** with named placeholders
 - 🎨 **Context extensions** for convenient access
@@ -15,7 +12,6 @@ A comprehensive, production-ready Flutter localization package with automatic te
 - 🏗️ **Custom widgets** for automatic translation
 - 📦 **Type-safe API** with full null-safety
 - 🎯 **Performance optimized** with caching and preloading
-- 🧪 **Comprehensive testing** coverage
 - 📚 **Rich documentation** and examples
 
 ## 📦 Installation
@@ -66,6 +62,10 @@ assets/
 {
   "email": "Email Address",
   "password": "Password",
+  "first_name": "First Name",
+  "last_name": "Last Name"
+}
+```
 **Example `validation.json` (validation messages):**
 ```json
 {
@@ -473,8 +473,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 📞 Support
 
 - 📖 [Documentation](https://pub.dev/packages/flutter_locale_master)
-- 🐛 [Issues](https://github.com/your-repo/issues)
-- 💬 [Discussions](https://github.com/your-repo/discussions)
+- 🐛 [Issues](https://github.com/khedrmahmoud/Flutter-Locale-Master/issues)
+- 💬 [Discussions](https://github.com/khedrmahmoud/Flutter-Locale-Master/discussions)
 
 ---
 
