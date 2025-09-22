@@ -8,7 +8,7 @@ import 'interfaces.dart';
 class DefaultLocaleDetector implements LocaleDetector {
   @override
   Future<Locale> detectSystemLocale() async {
-    final systemLocales = ui.window.locales;
+    final systemLocales = WidgetsBinding.instance.platformDispatcher.locales;
     if (systemLocales.isNotEmpty) {
       return _convertToFlutterLocale(systemLocales.first);
     }
@@ -17,7 +17,7 @@ class DefaultLocaleDetector implements LocaleDetector {
 
   @override
   Future<List<Locale>> getSystemLocales() async {
-    final systemLocales = ui.window.locales;
+    final systemLocales = WidgetsBinding.instance.platformDispatcher.locales;
     return systemLocales.map(_convertToFlutterLocale).toList();
   }
 

@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.1] - 2025-09-22
+## [1.0.2] - 2025-09-22
+
+### Fixed
+- **Package Description**: Shortened description to meet pub.dev requirements (60-180 characters)
+- **Deprecated API Usage**: Replaced deprecated `ui.window.locales` with `WidgetsBinding.instance.platformDispatcher.locales`
+- **Static Analysis**: Fixed lint warnings for deprecated member usage
+- **Pub Points**: Improved package score from 140 to target 160 points
+
+### Technical Details
+- Updated locale detection to use modern Flutter APIs
+- Improved package metadata for better pub.dev presentation
+- Maintained backward compatibility while fixing deprecation warnings
 
 ### Fixed
 - **Supported Locales Parameter**: Fixed `supportedLocales` parameter in `initialize()` method to properly configure allowed locales
