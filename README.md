@@ -441,50 +441,13 @@ void main() {
 }
 ```
 
-## 🔄 Migration Guide
+## � Performance
 
-### From easy_localization
-
-1. **Replace initialization:**
-   ```dart
-   // Before
-   EasyLocalization(
-     supportedLocales: [Locale('en'), Locale('ar')],
-     path: 'lang',
-   )
-
-   // After
-   final localeMaster = await FlutterLocaleMaster.initialize(
-     basePath: 'lang/',
-     initialLocale: const Locale('en'),
-   );
-   ```
-
-2. **Update MaterialApp wrapping:**
-   ```dart
-   // Before
-   EasyLocalization(
-     child: MyApp(),
-   )
-
-   // After
-   localeMaster.wrapApp((locale) => MaterialApp(...))
-   ```
-
-3. **Translation access remains the same:**
-   ```dart
-   // Both work the same
-   context.tr('hello')
-   'hello'.tr()
-   ```
-
-### From flutter_localizations
-
-1. **Add Flutter Locale Master initialization**
-2. **Replace LocalizationsDelegate usage**
-3. **Use TranslatedText widgets or context extensions**
-
-## 📈 Performance
+- **Preloading**: All translations loaded at startup
+- **Caching**: In-memory caching prevents disk I/O
+- **Lazy initialization**: Singleton pattern prevents waste
+- **Concurrent loading**: Multiple files loaded simultaneously
+- **Minimal rebuilds**: Only affected widgets update on locale change
 
 - **Preloading**: All translations loaded at startup
 - **Caching**: In-memory caching prevents disk I/O
