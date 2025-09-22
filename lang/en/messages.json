@@ -1,0 +1,7 @@
+{
+  "test": "Test Value",
+  "test_key": "Test Translation",
+  "greeting": "Hello :name!",
+  "welcome": "Welcome to Flutter Locale Master",
+  "items": "item|items"
+}

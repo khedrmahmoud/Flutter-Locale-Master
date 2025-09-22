@@ -1,0 +1,32 @@
+name: flutter_locale_master_example
+description: Example app demonstrating Flutter Locale Master usage
+publish_to: 'none'
+
+version: 1.0.0
+
+environment:
+  sdk: ^3.8.1
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  flutter_locale_master:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lang/
+    - lang/en/
+    - lang/fr/
+    - lang/ar/
+    

@@ -1,0 +1,9 @@
+{
+  "greeting": "Bonjour :name!",
+  "welcome": "Bienvenue dans Flutter Locale Master",
+  "items": "article|articles",
+  "apples": "Vous avez :count pomme|Vous avez :count pommes",
+  "go_to_second_page": "Aller à la deuxième page",
+  "second_page_title": "Deuxième Page",
+  "back_to_home": "Retour à l'accueil"
+}

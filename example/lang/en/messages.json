@@ -1,0 +1,9 @@
+{
+  "greeting": "Hello :name!",
+  "welcome": "Welcome to Flutter Locale Master",
+  "items": "item|items",
+  "apples": "You have :count apple|You have :count apples",
+  "go_to_second_page": "Go to Second Page",
+  "second_page_title": "Second Page",
+  "back_to_home": "Back to Home"
+}
