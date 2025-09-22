@@ -33,7 +33,10 @@ void main() {
 
     test('should handle field translations', () {
       provider.setLocale('en');
-      expect(provider.field('test'), 'test'); // No fields namespace, returns key
+      expect(
+        provider.field('test'),
+        'test',
+      ); // No fields namespace, returns key
     });
 
     test('should load namespace translations', () {

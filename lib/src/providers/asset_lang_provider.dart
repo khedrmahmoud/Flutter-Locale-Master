@@ -25,9 +25,10 @@ class AssetLangProvider implements LangProvider {
     TranslationLoader? loader,
     ParameterReplacer? parameterReplacer,
     PluralizationHandler? pluralizationHandler,
-  })  : _loader = loader ?? AssetTranslationLoader(basePath: basePath),
-        _parameterReplacer = parameterReplacer ?? DefaultParameterReplacer(),
-        _pluralizationHandler = pluralizationHandler ?? DefaultPluralizationHandler();
+  }) : _loader = loader ?? AssetTranslationLoader(basePath: basePath),
+       _parameterReplacer = parameterReplacer ?? DefaultParameterReplacer(),
+       _pluralizationHandler =
+           pluralizationHandler ?? DefaultPluralizationHandler();
 
   Future<void> initialize() async {
     try {
@@ -65,13 +66,15 @@ class AssetLangProvider implements LangProvider {
     final ns = namespace ?? '';
 
     // Try namespace first, then global
-    String? msg = _loader.getTranslation(key, loc, namespace: ns) ??
-                  _loader.getTranslation(key, loc, namespace: '');
+    String? msg =
+        _loader.getTranslation(key, loc, namespace: ns) ??
+        _loader.getTranslation(key, loc, namespace: '');
 
     // Fallback to fallback locale
     if (msg == null && loc != _fallbackLocale) {
-      msg = _loader.getTranslation(key, _fallbackLocale, namespace: ns) ??
-            _loader.getTranslation(key, _fallbackLocale, namespace: '');
+      msg =
+          _loader.getTranslation(key, _fallbackLocale, namespace: ns) ??
+          _loader.getTranslation(key, _fallbackLocale, namespace: '');
     }
 
     // Use key if not found
@@ -96,12 +99,14 @@ class AssetLangProvider implements LangProvider {
     final loc = locale ?? _currentLocale;
     final ns = namespace ?? '';
 
-    String? msg = _loader.getTranslation(key, loc, namespace: ns) ??
-                  _loader.getTranslation(key, loc, namespace: '');
+    String? msg =
+        _loader.getTranslation(key, loc, namespace: ns) ??
+        _loader.getTranslation(key, loc, namespace: '');
 
     if (msg == null && loc != _fallbackLocale) {
-      msg = _loader.getTranslation(key, _fallbackLocale, namespace: ns) ??
-            _loader.getTranslation(key, _fallbackLocale, namespace: '');
+      msg =
+          _loader.getTranslation(key, _fallbackLocale, namespace: ns) ??
+          _loader.getTranslation(key, _fallbackLocale, namespace: '');
     }
 
     msg ??= key;
@@ -128,8 +133,10 @@ class AssetLangProvider implements LangProvider {
     return _loader.getTranslation(key, loc, namespace: ns) != null ||
         _loader.getTranslation(key, loc, namespace: '') != null ||
         (loc != _fallbackLocale &&
-            (_loader.getTranslation(key, _fallbackLocale, namespace: ns) != null ||
-                _loader.getTranslation(key, _fallbackLocale, namespace: '') != null));
+            (_loader.getTranslation(key, _fallbackLocale, namespace: ns) !=
+                    null ||
+                _loader.getTranslation(key, _fallbackLocale, namespace: '') !=
+                    null));
   }
 
   @override
@@ -140,7 +147,7 @@ class AssetLangProvider implements LangProvider {
         _loader.getTranslation(key, loc, namespace: '') ??
         (loc != _fallbackLocale
             ? (_loader.getTranslation(key, _fallbackLocale, namespace: ns) ??
-                _loader.getTranslation(key, _fallbackLocale, namespace: ''))
+                  _loader.getTranslation(key, _fallbackLocale, namespace: ''))
             : null);
   }
 
@@ -151,7 +158,11 @@ class AssetLangProvider implements LangProvider {
     Map<String, String> translations,
   ) {
     // Store in the cache for dynamic loading
-    (_loader as DefaultTranslationCache).storeNamespace(locale, namespace, translations);
+    (_loader as DefaultTranslationCache).storeNamespace(
+      locale,
+      namespace,
+      translations,
+    );
   }
 
   @override
@@ -168,11 +179,8 @@ class AssetLangProvider implements LangProvider {
 
   @override
   void addParameterReplacer(
-    String Function(
-      String key,
-      dynamic value,
-      Map<String, dynamic> parameters,
-    ) replacer,
+    String Function(String key, dynamic value, Map<String, dynamic> parameters)
+    replacer,
   ) {
     _parameterReplacer.addReplacer(replacer);
   }

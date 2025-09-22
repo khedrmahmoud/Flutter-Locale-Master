@@ -305,7 +305,6 @@ class FlutterLocaleMaster {
     if (_instance != null) {
       return _instance!;
     }
-    
 
     final localeMaster = FlutterLocaleMaster._();
 
@@ -377,9 +376,7 @@ class FlutterLocaleMaster {
   ///
   /// **Note**: The text direction is automatically handled, but you can also
   /// manually wrap with [Directionality] if needed for custom scenarios.
-  Widget wrapApp(
-    Widget Function(Locale? locale) appBuilder,
-  ) {
+  Widget wrapApp(Widget Function(Locale? locale) appBuilder) {
     return LocalizationProvider(
       controller: _controller,
       provider: _provider,

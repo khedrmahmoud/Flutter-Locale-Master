@@ -14,7 +14,7 @@ void main() {
       provider = AssetLangProvider(basePath: 'lang/');
       await provider.initialize();
       controller = LocaleController(provider: provider);
-      
+
       // Load test translations
       provider.loadNamespace('', 'en', {
         'greeting': 'Hello :name!',
@@ -42,7 +42,9 @@ void main() {
       expect(find.text('Hello :name!'), findsOneWidget);
     });
 
-    testWidgets('should translate with parameters', (WidgetTester tester) async {
+    testWidgets('should translate with parameters', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         Directionality(
           textDirection: TextDirection.ltr,
@@ -51,7 +53,9 @@ void main() {
             provider: provider,
             child: Builder(
               builder: (context) {
-                return Text(context.tr('greeting', parameters: {'name': 'John'}));
+                return Text(
+                  context.tr('greeting', parameters: {'name': 'John'}),
+                );
               },
             ),
           ),
@@ -80,7 +84,9 @@ void main() {
       expect(find.text('item'), findsOneWidget);
     });
 
-    testWidgets('should translate plural with multiple items', (WidgetTester tester) async {
+    testWidgets('should translate plural with multiple items', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         Directionality(
           textDirection: TextDirection.ltr,
@@ -153,7 +159,9 @@ void main() {
       );
     });
 
-    testWidgets('should get localization provider', (WidgetTester tester) async {
+    testWidgets('should get localization provider', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         Directionality(
           textDirection: TextDirection.ltr,

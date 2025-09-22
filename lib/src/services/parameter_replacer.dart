@@ -3,7 +3,10 @@ import 'interfaces.dart';
 /// Implementation of ParameterReplacer for replacing parameters in translation strings.
 class DefaultParameterReplacer implements ParameterReplacer {
   /// Custom parameter replacers.
-  final List<String Function(String key, dynamic value, Map<String, dynamic> parameters)> _replacers = [];
+  final List<
+    String Function(String key, dynamic value, Map<String, dynamic> parameters)
+  >
+  _replacers = [];
 
   @override
   String replaceParameters(String message, Map<String, dynamic> parameters) {
@@ -24,7 +27,8 @@ class DefaultParameterReplacer implements ParameterReplacer {
     // Standard :param replacement
     for (final entry in parameters.entries) {
       final placeholder = ':${entry.key}';
-      final replacement = customReplacements[entry.key] ?? entry.value.toString();
+      final replacement =
+          customReplacements[entry.key] ?? entry.value.toString();
       result = result.replaceAll(placeholder, replacement);
     }
 
@@ -32,7 +36,10 @@ class DefaultParameterReplacer implements ParameterReplacer {
   }
 
   @override
-  void addReplacer(String Function(String key, dynamic value, Map<String, dynamic> parameters) replacer) {
+  void addReplacer(
+    String Function(String key, dynamic value, Map<String, dynamic> parameters)
+    replacer,
+  ) {
     _replacers.add(replacer);
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_locale_master/flutter_locale_master.dart';
 
- 
 /// A widget that rebuilds when the locale changes.
 ///
 /// LocaleConsumer automatically rebuilds its child when the locale changes,
@@ -48,7 +47,8 @@ class LocaleConsumer extends StatelessWidget {
     BuildContext context,
     LocalizationProvider localization,
     Widget? child,
-  ) builder;
+  )
+  builder;
 
   /// A static child widget that doesn't rebuild with locale changes.
   final Widget? child;
@@ -57,18 +57,10 @@ class LocaleConsumer extends StatelessWidget {
   ///
   /// [builder] Function that builds the widget tree.
   /// [child] Optional static child that doesn't rebuild.
-  const LocaleConsumer({
-    super.key,
-    required this.builder,
-    this.child,
-  });
+  const LocaleConsumer({super.key, required this.builder, this.child});
 
   @override
   Widget build(BuildContext context) {
-    return builder(
-      context,
-      LocalizationProvider.of(context),
-      child,
-    );
+    return builder(context, LocalizationProvider.of(context), child);
   }
 }

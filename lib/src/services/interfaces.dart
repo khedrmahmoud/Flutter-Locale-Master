@@ -106,7 +106,10 @@ abstract class ParameterReplacer {
   String replaceParameters(String message, Map<String, dynamic> parameters);
 
   /// Adds a custom parameter replacer.
-  void addReplacer(String Function(String key, dynamic value, Map<String, dynamic> parameters) replacer);
+  void addReplacer(
+    String Function(String key, dynamic value, Map<String, dynamic> parameters)
+    replacer,
+  );
 }
 
 /// Service for handling pluralization logic.

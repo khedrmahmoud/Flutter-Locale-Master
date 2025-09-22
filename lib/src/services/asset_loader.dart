@@ -56,7 +56,9 @@ class AssetTranslationLoader extends DefaultTranslationCache {
   Future<void> loadLocale(String locale) async {
     if (isLocaleCached(locale)) return;
 
-    final files = _localeFiles[locale] ?? ['messages']; // fallback to messages if no manifest
+    final files =
+        _localeFiles[locale] ??
+        ['messages']; // fallback to messages if no manifest
 
     final loadTasks = <Future>[];
     for (final file in files) {

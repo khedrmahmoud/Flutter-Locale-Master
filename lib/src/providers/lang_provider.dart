@@ -105,10 +105,7 @@ abstract class LangProvider {
   /// [replacer] A function that takes (key, value, parameters) and returns
   /// the replacement string. Return ':key' to use default replacement.
   void addParameterReplacer(
-    String Function(
-      String key,
-      dynamic value,
-      Map<String, dynamic> parameters,
-    ) replacer,
+    String Function(String key, dynamic value, Map<String, dynamic> parameters)
+    replacer,
   );
 }

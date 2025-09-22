@@ -229,25 +229,22 @@ class TranslatedRichText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   final textSpan =
-            spanBuilder?.call(translationKey) ??
-            TextSpan(
-              text: translationKey.tr(
-                parameters: parameters,
-                namespace: namespace,
-              ),
-              style: style,
-            );
-
-        return RichText(
-          text: textSpan,
-          textAlign: textAlign ?? TextAlign.start,
-          textDirection: textDirection,
-          softWrap: softWrap ?? true,
-          overflow: overflow ?? TextOverflow.clip,
-          maxLines: maxLines,
-          textScaler: TextScaler.linear(textScaleFactor ?? 1.0),
-          strutStyle: strutStyle == true ? StrutStyle() : null,
+    final textSpan =
+        spanBuilder?.call(translationKey) ??
+        TextSpan(
+          text: translationKey.tr(parameters: parameters, namespace: namespace),
+          style: style,
         );
+
+    return RichText(
+      text: textSpan,
+      textAlign: textAlign ?? TextAlign.start,
+      textDirection: textDirection,
+      softWrap: softWrap ?? true,
+      overflow: overflow ?? TextOverflow.clip,
+      maxLines: maxLines,
+      textScaler: TextScaler.linear(textScaleFactor ?? 1.0),
+      strutStyle: strutStyle == true ? StrutStyle() : null,
+    );
   }
 }

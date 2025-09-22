@@ -40,14 +40,23 @@ class DefaultTranslationCache implements TranslationLoader {
   }
 
   /// Stores a translation in the cache.
-  void storeTranslation(String locale, String namespace, String key, String value) {
+  void storeTranslation(
+    String locale,
+    String namespace,
+    String key,
+    String value,
+  ) {
     _cache.putIfAbsent(locale, () => {});
     _cache[locale]!.putIfAbsent(namespace, () => {});
     _cache[locale]![namespace]![key] = value;
   }
 
   /// Stores multiple translations for a namespace.
-  void storeNamespace(String locale, String namespace, Map<String, String> translations) {
+  void storeNamespace(
+    String locale,
+    String namespace,
+    Map<String, String> translations,
+  ) {
     _cache.putIfAbsent(locale, () => {});
     _cache[locale]![namespace] = Map.from(translations);
   }

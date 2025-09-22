@@ -76,7 +76,8 @@ class LocalizationProvider extends InheritedNotifier<LocaleController> {
   /// Returns the nearest LocalizationProvider in the widget tree.
   /// Throws an error if no LocalizationProvider is found.
   static LocalizationProvider of(BuildContext context) {
-    final result = context.dependOnInheritedWidgetOfExactType<LocalizationProvider>();
+    final result = context
+        .dependOnInheritedWidgetOfExactType<LocalizationProvider>();
     assert(result != null, 'No LocalizationProvider found in context');
     return result!;
   }

@@ -1,6 +1,6 @@
 name: flutter_locale_master
 description: "Advanced Flutter localization with automatic RTL/LTR switching, reactive UI updates, asset-based translations, pluralization, and custom widgets."
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/khedrmahmoud/Flutter-Locale-Master
 repository: https://github.com/khedrmahmoud/Flutter-Locale-Master
 issue_tracker: https://github.com/khedrmahmoud/Flutter-Locale-Master/issues

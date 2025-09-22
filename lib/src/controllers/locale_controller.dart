@@ -22,11 +22,11 @@ class LocaleController extends CoreLocaleController {
     LocaleDetector? localeDetector,
     LocaleValidator? localeValidator,
   }) : super(
-          localeDetector: localeDetector ?? DefaultLocaleDetector(),
-          localeValidator: localeValidator ?? DefaultLocaleValidator(),
-          initialLocale: initialLocale,
-          fallbackLocale: fallbackLocale,
-        ) {
+         localeDetector: localeDetector ?? DefaultLocaleDetector(),
+         localeValidator: localeValidator ?? DefaultLocaleValidator(),
+         initialLocale: initialLocale,
+         fallbackLocale: fallbackLocale,
+       ) {
     _provider = provider;
     _configuredSupportedLocales = supportedLocales;
     // Set initial locale on provider if available
@@ -41,7 +41,9 @@ class LocaleController extends CoreLocaleController {
   /// Gets the list of supported locales from the provider.
   List<String> getSupportedLocales() {
     if (_configuredSupportedLocales != null) {
-      return _configuredSupportedLocales!.map((locale) => locale.languageCode).toList();
+      return _configuredSupportedLocales!
+          .map((locale) => locale.languageCode)
+          .toList();
     }
     if (_provider != null) {
       return _provider.getAvailableLocales();

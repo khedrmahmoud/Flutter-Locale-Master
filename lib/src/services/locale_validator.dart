@@ -11,7 +11,9 @@ class DefaultLocaleValidator implements LocaleValidator {
       final parsed = parseLocale(locale);
       // Basic validation: language code should be 2-3 characters
       final langCode = parsed.languageCode;
-      return langCode.isNotEmpty && langCode.length >= 2 && langCode.length <= 3;
+      return langCode.isNotEmpty &&
+          langCode.length >= 2 &&
+          langCode.length <= 3;
     } catch (e) {
       return false;
     }

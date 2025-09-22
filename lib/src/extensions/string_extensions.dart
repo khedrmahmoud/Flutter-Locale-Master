@@ -127,10 +127,7 @@ extension LocalizationString on String {
   /// [namespace] Optional namespace for the translation.
   ///
   /// Returns the translated string, or the original key if not initialized.
-  String tr({
-    Map<String, dynamic>? parameters,
-    String? namespace,
-  }) {
+  String tr({Map<String, dynamic>? parameters, String? namespace}) {
     try {
       return FlutterLocaleMaster.instance.tr(
         this,
@@ -175,7 +172,10 @@ extension LocalizationString on String {
   /// Returns the translated field name.
   String field({String? namespace}) {
     try {
-      return FlutterLocaleMaster.instance.provider.field(this, namespace: namespace);
+      return FlutterLocaleMaster.instance.provider.field(
+        this,
+        namespace: namespace,
+      );
     } catch (e) {
       // Return original key if not initialized
       return this;
@@ -189,7 +189,10 @@ extension LocalizationString on String {
   /// Returns true if the key exists, false otherwise.
   bool exists({String? namespace}) {
     try {
-      return FlutterLocaleMaster.instance.provider.has(this, namespace: namespace);
+      return FlutterLocaleMaster.instance.provider.has(
+        this,
+        namespace: namespace,
+      );
     } catch (e) {
       // Return false if not initialized
       return false;

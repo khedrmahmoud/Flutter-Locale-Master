@@ -250,7 +250,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TranslationExample(
                   label: 'Password too short',
-                  content: Text('password_too_short'.tr(namespace: 'validation')),
+                  content: Text(
+                    'password_too_short'.tr(namespace: 'validation'),
+                  ),
                 ),
               ],
             ),
