@@ -20,7 +20,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_locale_master: ^1.0.3
+  flutter_locale_master: ^1.0.4
 ```
 
 ## 🚀 Quick Start
