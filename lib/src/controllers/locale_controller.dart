@@ -9,11 +9,15 @@ class LocaleController extends CoreLocaleController {
   /// The language provider for translations.
   dynamic _provider;
 
+  /// Configured supported locales.
+  List<ui.Locale>? _configuredSupportedLocales;
+
   /// Creates a LocaleController with optional provider and initial locales.
   LocaleController({
     dynamic provider,
     ui.Locale? initialLocale,
     ui.Locale? fallbackLocale,
+    List<ui.Locale>? supportedLocales,
     TextDirectionResolver? textDirectionResolver,
     LocaleDetector? localeDetector,
     LocaleValidator? localeValidator,
@@ -24,6 +28,7 @@ class LocaleController extends CoreLocaleController {
           fallbackLocale: fallbackLocale,
         ) {
     _provider = provider;
+    _configuredSupportedLocales = supportedLocales;
     // Set initial locale on provider if available
     if (_provider != null) {
       final localeToUse = initialLocale ?? const ui.Locale('en');
@@ -35,6 +40,9 @@ class LocaleController extends CoreLocaleController {
 
   /// Gets the list of supported locales from the provider.
   List<String> getSupportedLocales() {
+    if (_configuredSupportedLocales != null) {
+      return _configuredSupportedLocales!.map((locale) => locale.languageCode).toList();
+    }
     if (_provider != null) {
       return _provider.getAvailableLocales();
     }

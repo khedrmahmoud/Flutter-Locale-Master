@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-09-22
+## [1.0.1] - 2025-09-22
+
+### Fixed
+- **Supported Locales Parameter**: Fixed `supportedLocales` parameter in `initialize()` method to properly configure allowed locales
+- **Localization Delegate**: Fixed `FlutterLocaleMasterDelegate.isSupported()` to use configured supported locales instead of auto-detected ones
+- **Locale Validation**: Resolved warnings about unsupported locales in MaterialApp integration
+- **Example App**: Updated example app to properly use supported locales configuration
+
+### Technical Details
+- Delegate now respects the `supportedLocales` parameter passed to `initialize()`
+- Fixed locale validation warnings when using Arabic and other RTL locales
+- Improved integration with Flutter's localization system
 
 ### Added
 - **Multi-file Translation Support**: Organize translations with multiple JSON files per locale

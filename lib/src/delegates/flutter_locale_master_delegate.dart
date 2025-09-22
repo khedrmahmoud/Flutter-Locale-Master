@@ -54,7 +54,7 @@ class FlutterLocaleMasterDelegate extends LocalizationsDelegate<Object> {
 
   @override
   bool isSupported(Locale locale) {
-    final supportedLocales = provider.getAvailableLocales();
+    final supportedLocales = controller.getSupportedLocales();
     return supportedLocales.contains(locale.languageCode);
   }
 

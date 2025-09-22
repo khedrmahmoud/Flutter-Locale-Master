@@ -9,7 +9,8 @@ void main() async {
   final localeMaster = await FlutterLocaleMaster.initialize(
     basePath: 'lang/',
     initialLocale: const Locale('ar'),
-    fallbackLocale: const Locale('en'),
+    fallbackLocale: const Locale('ar'),
+    supportedLocales: const [Locale('en'), Locale('fr'), Locale('ar')],
   );
 
   runApp(MyApp(localeMaster: localeMaster));
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: const [Locale('en'), Locale('fr'), Locale('ar')],
+        supportedLocales: localeMaster.supportedLocales,
         locale: locale,
         home: HomePage(localeMaster: localeMaster),
       ),
@@ -414,51 +415,6 @@ class _NameInputFieldState extends State<NameInputField> {
           const SizedBox(height: 8),
           TranslatedText('greeting', parameters: {'name': widget.userName}),
         ],
-      ),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: TranslatedText('second_page_title'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TranslatedText(
-              'welcome',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 24),
-            TranslatedText(
-              'greeting',
-              parameters: {'name': 'User'},
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: TranslatedText('back_to_home'),
-            ),
-            const SizedBox(height: 24),
-            // Show current text direction on this page too
-            Text(
-              'Text Direction: ${context.textDirection == TextDirection.rtl ? 'RTL' : 'LTR'}',
-            ),
-            Text('Is RTL: ${context.isRTL}'),
-          ],
-        ),
       ),
     );
   }

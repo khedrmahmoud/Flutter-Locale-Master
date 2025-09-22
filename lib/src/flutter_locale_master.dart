@@ -276,7 +276,7 @@ class FlutterLocaleMaster {
   /// - [basePath]: Root directory for translation files (e.g., 'lang/', 'assets/lang/')
   /// - [initialLocale]: Starting locale. If null, uses system locale
   /// - [fallbackLocale]: Fallback when translations not found. Defaults to 'en'
-  /// - [supportedLocales]: Optional list of allowed locales for validation
+  /// - [supportedLocales]: List of allowed locales. If null, auto-detects from asset files
   ///
   /// Returns the initialized [FlutterLocaleMaster] instance.
   ///
@@ -288,6 +288,7 @@ class FlutterLocaleMaster {
   ///     basePath: 'lang/',
   ///     initialLocale: const Locale('en'),
   ///     fallbackLocale: const Locale('en'),
+  ///     supportedLocales: [Locale('en'), Locale('ar'), Locale('fr')],
   ///   );
   ///
   ///   runApp(MyApp(localeMaster: localeMaster));
@@ -304,6 +305,7 @@ class FlutterLocaleMaster {
     if (_instance != null) {
       return _instance!;
     }
+    
 
     final localeMaster = FlutterLocaleMaster._();
 
@@ -318,6 +320,7 @@ class FlutterLocaleMaster {
     localeMaster._controller = LocaleController(
       provider: localeMaster._provider,
       fallbackLocale: fallbackLocale,
+      supportedLocales: supportedLocales,
     );
     await localeMaster._controller.initialize();
 
